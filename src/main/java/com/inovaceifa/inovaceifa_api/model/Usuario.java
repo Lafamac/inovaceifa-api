@@ -3,13 +3,14 @@ package com.inovaceifa.api.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "usuarios")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class Usuario {
 
     @Id
@@ -22,10 +23,13 @@ public class Usuario {
     @Column(nullable = false, unique = true, length = 100)
     private String email;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false)
     private String senha;
 
     @ManyToOne
-    @JoinColumn(name = "perfil", nullable = false)
+    @JoinColumn(name = "perfil_id", nullable = false)
     private PerfilUsuario perfil;
+
+    @Column(name = "criado_em")
+    private LocalDateTime criadoEm;
 }

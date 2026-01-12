@@ -9,13 +9,12 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class PerfilUsuario {
 
     @Id
     @Column(name = "id")
-    private Long id;
+    private Integer id;
 
-    @Column(name = "descricao", nullable = false, length = 50)
+    @Column(name = "descricao", nullable = false)
     private String descricao;
 }
