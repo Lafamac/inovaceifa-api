@@ -1,11 +1,9 @@
 package com.inovaceifa.api.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
-public class LoginRequest {
+@Data
+public class LoginRequestDTO {
 
     private String email;
     private String senha;
