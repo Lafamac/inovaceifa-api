@@ -1,15 +1,15 @@
 package com.inovaceifa.api.dto;
 
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
+@Builder
 public class LoginResponseDTO {
 
     private Long id;
     private String nome;
     private String email;
     private Integer perfilId;
-    private String status;
 }
+

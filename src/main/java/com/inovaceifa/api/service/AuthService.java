@@ -2,8 +2,8 @@ package com.inovaceifa.api.service;
 
 import com.inovaceifa.api.dto.LoginRequestDTO;
 import com.inovaceifa.api.dto.LoginResponseDTO;
+import com.inovaceifa.api.exception.BadRequestException;
 import com.inovaceifa.api.exception.NotFoundException;
-import com.inovaceifa.api.exception.UnauthorizedException;
 import com.inovaceifa.api.model.Usuario;
 import com.inovaceifa.api.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,15 +23,14 @@ public class AuthService {
                 .orElseThrow(() -> new NotFoundException("Usuário não encontrado"));
 
         if (!passwordEncoder.matches(dto.getSenha(), usuario.getSenha())) {
-            throw new UnauthorizedException("Senha inválida");
+            throw new BadRequestException("Senha inválida");
         }
 
-        return new LoginResponseDTO(
-                usuario.getId(),
-                usuario.getNome(),
-                usuario.getEmail(),
-                usuario.getPerfilId(),
-                "LOGIN_OK"
-        );
+        return LoginResponseDTO.builder()
+                .id(usuario.getId())
+                .nome(usuario.getNome())
+                .email(usuario.getEmail())
+                .perfilId(usuario.getPerfilId())
+                .build();
     }
 }
