@@ -1,9 +1,9 @@
 package com.inovaceifa.api.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 @AllArgsConstructor
 public class LoginResponseDTO {
 
@@ -11,5 +11,5 @@ public class LoginResponseDTO {
     private String nome;
     private String email;
     private Integer perfilId;
-    private String mensagem;
+    private String status;
 }

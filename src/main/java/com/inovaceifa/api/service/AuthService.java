@@ -2,10 +2,12 @@ package com.inovaceifa.api.service;
 
 import com.inovaceifa.api.dto.LoginRequestDTO;
 import com.inovaceifa.api.dto.LoginResponseDTO;
+import com.inovaceifa.api.exception.NotFoundException;
+import com.inovaceifa.api.exception.UnauthorizedException;
 import com.inovaceifa.api.model.Usuario;
 import com.inovaceifa.api.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,15 +15,15 @@ import org.springframework.stereotype.Service;
 public class AuthService {
 
     private final UsuarioRepository usuarioRepository;
-    private final BCryptPasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     public LoginResponseDTO login(LoginRequestDTO dto) {
 
         Usuario usuario = usuarioRepository.findByEmail(dto.getEmail())
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+                .orElseThrow(() -> new NotFoundException("Usuário não encontrado"));
 
         if (!passwordEncoder.matches(dto.getSenha(), usuario.getSenha())) {
-            throw new RuntimeException("Senha inválida");
+            throw new UnauthorizedException("Senha inválida");
         }
 
         return new LoginResponseDTO(
@@ -29,7 +31,7 @@ public class AuthService {
                 usuario.getNome(),
                 usuario.getEmail(),
                 usuario.getPerfilId(),
-                "Login realizado com sucesso"
+                "LOGIN_OK"
         );
     }
 }

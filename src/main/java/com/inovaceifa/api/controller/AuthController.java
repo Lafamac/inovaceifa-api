@@ -1,5 +1,6 @@
 package com.inovaceifa.api.controller;
 
+import com.inovaceifa.api.dto.BaseResponseDTO;
 import com.inovaceifa.api.dto.LoginRequestDTO;
 import com.inovaceifa.api.dto.LoginResponseDTO;
 import com.inovaceifa.api.service.AuthService;
@@ -15,9 +16,17 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponseDTO> login(
+    public ResponseEntity<BaseResponseDTO<LoginResponseDTO>> login(
             @RequestBody LoginRequestDTO dto
     ) {
-        return ResponseEntity.ok(authService.login(dto));
+        LoginResponseDTO response = authService.login(dto);
+
+        return ResponseEntity.ok(
+                new BaseResponseDTO<>(
+                        true,
+                        "Login realizado com sucesso",
+                        response
+                )
+        );
     }
 }

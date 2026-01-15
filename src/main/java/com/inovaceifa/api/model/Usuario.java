@@ -29,4 +29,8 @@ public class Usuario {
 
     @Column(name = "criado_em")
     private LocalDateTime criadoEm;
+
+    @Transient
+    private String perfilDescricao;
+
 }
