@@ -11,5 +11,9 @@ public class LoginResponseDTO {
     private String nome;
     private String email;
     private Integer perfilId;
+    private String token;
+
 }
+
+
 
