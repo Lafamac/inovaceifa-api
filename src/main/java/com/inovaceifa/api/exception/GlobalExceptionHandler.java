@@ -9,22 +9,20 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<ApiResponseDTO<?>> handleNotFound(NotFoundException ex) {
-        return ResponseEntity
-                .status(HttpStatus.NOT_FOUND)
-                .body(ApiResponseDTO.error(ex.getMessage()));
-    }
+    @ExceptionHandler(AuthException.class)
+    public ResponseEntity<ApiResponseDTO<?>> handleAuthException(AuthException ex) {
 
-    @ExceptionHandler(UnauthorizedException.class)
-    public ResponseEntity<ApiResponseDTO<?>> handleUnauthorized(UnauthorizedException ex) {
         return ResponseEntity
                 .status(HttpStatus.UNAUTHORIZED)
                 .body(ApiResponseDTO.error(ex.getMessage()));
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ApiResponseDTO<?>> handleGeneric(Exception ex) {
+    public ResponseEntity<ApiResponseDTO<?>> handleGenericException(Exception ex) {
+
+        // IMPORTANTE: logar o erro real
+        ex.printStackTrace();
+
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(ApiResponseDTO.error("Erro interno no servidor"));
