@@ -1,0 +1,15 @@
+INSERT INTO   conta_gerencial   (  id  ,   descricao  ) VALUES
+	(1, 'Administração'),
+	(2, 'Ad. Via Folha'),
+	(3, 'Ad. Via Solo'),
+	(4, 'Arrendamento'),
+	(5, 'Colheita de árvore'),
+	(6, 'Colheita de chão'),
+	(7, 'Comercialização'),
+	(8, 'Condução da lavoura'),
+	(9, 'Cont. Pragas e Doenças'),
+	(10, 'Cont. Plantas Daninhas'),
+	(11, 'Gestão'),
+	(12, 'Irrigação'),
+	(13, 'Plantio'),
+	(14, 'Pós Colheita');

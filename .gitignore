@@ -1,0 +1,14 @@
+# Ignorar segredos locais
+src/main/resources/application-local.yml
+.env
+
+# Maven
+target/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Logs
+*.log
+*.tar

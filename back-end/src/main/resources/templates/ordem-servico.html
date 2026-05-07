@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            margin: 20px;
+        }
+
+        .titulo {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .subtitulo {
+            text-align: center;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .box {
+            border: 1px solid #000;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        .linha {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 6px;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 4px;
+            font-size: 10px;
+        }
+
+        th {
+            background-color: #eee;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .total {
+            font-weight: bold;
+            background-color: #f2f2f2;
+        }
+
+        .resumo {
+            margin-top: 10px;
+        }
+
+        .assinaturas {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .assinatura {
+            width: 40%;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="titulo">ORDEM DE SERVIÇO</div>
+<div class="subtitulo" th:text="${fazenda}"></div>
+
+<!-- DADOS -->
+<div class="box">
+
+    <div class="linha">
+        <div><strong>Talhão:</strong> <span th:text="${talhao}"></span></div>
+        <div><strong>Data:</strong> <span th:text="${data}"></span></div>
+    </div>
+
+    <div class="linha">
+        <div><strong>Operação:</strong> <span th:text="${operacao}"></span></div>
+        <div><strong>Área:</strong> <span th:text="${area}"></span></div>
+    </div>
+
+</div>
+
+<!-- PRODUTOS -->
+<div class="box">
+    <strong>Produtos</strong>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Produto</th>
+            <th class="text-right">Qtd</th>
+            <th class="text-right">Vlr Unit</th>
+            <th class="text-right">Total</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="p : ${produtos}">
+            <td th:text="${p.nome}"></td>
+            <td class="text-right" th:text="${p.quantidade}"></td>
+            <td class="text-right" th:text="${p.valorUnitario}"></td>
+            <td class="text-right" th:text="${p.valorTotal}"></td>
+        </tr>
+
+        <tr class="total">
+            <td colspan="3">TOTAL PRODUTOS</td>
+            <td class="text-right" th:text="${totalProdutos}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- COMBUSTÍVEL -->
+<div class="box">
+    <strong>Combustível</strong>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Máquina</th>
+            <th class="text-right">Litros</th>
+            <th class="text-right">Vlr Unit</th>
+            <th class="text-right">Total</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="c : ${combustiveis}">
+            <td th:text="${c.maquina}"></td>
+            <td class="text-right" th:text="${c.litros}"></td>
+            <td class="text-right" th:text="${c.valorUnitario}"></td>
+            <td class="text-right" th:text="${c.valorTotal}"></td>
+        </tr>
+
+        <tr class="total">
+            <td colspan="3">TOTAL COMBUSTÍVEL</td>
+            <td class="text-right" th:text="${totalCombustivel}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- MÁQUINAS -->
+<div class="box">
+    <strong>Máquinas</strong>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Máquina</th>
+            <th>Operador</th>
+            <th class="text-right">Horas</th>
+            <th class="text-right">Custo Hora</th>
+            <th class="text-right">Total</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="m : ${maquinas}">
+            <td th:text="${m.maquina}"></td>
+            <td th:text="${m.operador}"></td>
+            <td class="text-right" th:text="${m.horas}"></td>
+            <td class="text-right" th:text="${m.custoHora}"></td>
+            <td class="text-right" th:text="${m.custoTotal}"></td>
+        </tr>
+
+        <tr class="total">
+            <td colspan="4">TOTAL MÁQUINAS</td>
+            <td class="text-right" th:text="${totalMaquinas}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- RESUMO FINAL -->
+<div class="box resumo">
+
+    <div class="linha">
+        <div><strong>Total Produtos:</strong> <span th:text="${totalProdutos}"></span></div>
+        <div><strong>Total Combustível:</strong> <span th:text="${totalCombustivel}"></span></div>
+    </div>
+
+    <div class="linha">
+        <div><strong>Total Máquinas:</strong> <span th:text="${totalMaquinas}"></span></div>
+        <div><strong>CUSTO TOTAL:</strong> <span th:text="${custoTotal}"></span></div>
+    </div>
+
+</div>
+
+<!-- ASSINATURA -->
+<div class="assinaturas">
+    <div class="assinatura">
+        ___________________________<br/>
+        Responsável
+    </div>
+
+    <div class="assinatura">
+        ___________________________<br/>
+        Operador
+    </div>
+</div>
+
+</body>
+</html>

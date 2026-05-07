@@ -1,0 +1,1135 @@
+﻿
+> frontend@0.0.0 lint
+> eslint .
+
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\api\api.js
+  30:18  error  'e' is defined but never used  no-unused-vars
+  36:14  error  'e' is defined but never used  no-unused-vars
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\auth\AuthContext.jsx
+  100:17  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\components\CrudCard.jsx
+  5:5  error  'ativo' is defined but never used  no-unused-vars
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\components\Layout.jsx
+  4:27  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\components\OperationLayout.jsx
+  21:29  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  19 |     useEffect(() => {
+  20 |         const saved = localStorage.getItem('sidebarCollapsed')
+> 21 |         if (saved !== null) setCollapsed(saved === 'true')
+     |                             ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  22 |     }, [])
+  23 |
+  24 |     useEffect(() => {    react-hooks/set-state-in-effect
+  32:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  30 |         const savedTheme = localStorage.getItem('darkMode')
+  31 |         if (savedTheme === 'true') {
+> 32 |             setDarkMode(true)
+     |             ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  33 |             document.body.classList.add('dark')
+  34 |         }
+  35 |     }, [])  react-hooks/set-state-in-effect
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\components\PageLayout.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\components\PageTransition.jsx
+  2:27  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\components\Sidebar.jsx
+  42:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  40 |     useEffect(() => {
+  41 |         if (location.pathname.startsWith('/contas') || location.pathname.startsWith('/fluxo-caixa')) {
+> 42 |             setOpenFinanceiro(true)
+     |             ^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  43 |         }
+  44 |
+  45 |         if (location.pathname.startsWith('/produtos')) {  react-hooks/set-state-in-effect
+  57:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  55 |     useEffect(() => {
+  56 |         if (collapsed) {
+> 57 |             setOpenFinanceiro(false)
+     |             ^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  58 |             setOpenProdutos(false)
+  59 |             setOpenTalhoes(false)
+  60 |         }                                                                   react-hooks/set-state-in-effect
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\context\ToastContext.jsx
+  42:17  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\hooks\useAtivoInativoCrud.js
+   30:9   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  28 |
+  29 |     useEffect(() => {
+> 30 |         setPage(0)
+     |         ^^^^^^^ Avoid calling setState() directly within an effect
+  31 |     }, [mostrarInativos])
+  32 |
+  33 |     const {                                                           react-hooks/set-state-in-effect
+   55:13  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  53 |
+  54 |         if (!response?.ok || !response?.data) {
+> 55 |             setDados([])
+     |             ^^^^^^^^ Avoid calling setState() directly within an effect
+  56 |             setTotalPages(0)
+  57 |
+  58 |             const mensagem =  react-hooks/set-state-in-effect
+   79:8   warning  React Hook useEffect has a missing dependency: 'showToast'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react-hooks/exhaustive-deps
+  114:18  error    'err' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 no-unused-vars
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\AdubacaoPage.jsx
+  36:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  34 |   useEffect(() => {
+  35 |     if (!response?.data?.data) {
+> 36 |       setData(null)
+     |       ^^^^^^^ Avoid calling setState() directly within an effect
+  37 |       return
+  38 |     }
+  39 |  react-hooks/set-state-in-effect
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\DashboardSafra.jsx
+  11:28  error  'error' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\FazendaForm.jsx
+  19:13  error    'user' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             no-unused-vars
+  31:23  error    'setNomeSafra' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     no-unused-vars
+  32:24  error    'setDataInicio' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    no-unused-vars
+  33:21  error    'setDataFim' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       no-unused-vars
+  41:13  error    Error: Cannot access variable before it is declared
+
+`carregarFazenda` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  39 |     useEffect(() => {
+  40 |         if (modoEdicao) {
+> 41 |             carregarFazenda()
+     |             ^^^^^^^^^^^^^^^ `carregarFazenda` accessed before it is declared
+  42 |         }
+  43 |     }, [id])
+  44 |
+
+  43 |     }, [id])
+  44 |
+> 45 |     async function carregarFazenda() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 46 |         try {
+     | ^^^^^^^^^^^^^
+> 47 |             const response = await buscarFazenda(id)
+     ÔÇª
+     | ^^^^^^^^^^^^^
+> 64 |         }
+     | ^^^^^^^^^^^^^
+> 65 |     }
+     | ^^^^^^ `carregarFazenda` is declared here
+  66 |
+  67 |     function formatarCnpj(valor) {
+  68 |         valor = valor.replace(/\D/g, '')  react-hooks/immutability
+  43:8   warning  React Hook useEffect has missing dependencies: 'carregarFazenda' and 'modoEdicao'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\FolhaPagamentoForm.jsx
+  30:5   error    Error: Cannot access variable before it is declared
+
+`carregarFuncionarios` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  28 |
+  29 |   useEffect(() => {
+> 30 |     carregarFuncionarios()
+     |     ^^^^^^^^^^^^^^^^^^^^ `carregarFuncionarios` accessed before it is declared
+  31 |     if (id) carregar()
+  32 |   }, [])
+  33 |
+
+  32 |   }, [])
+  33 |
+> 34 |   async function carregarFuncionarios() {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 35 |     try {
+     | ^^^^^^^^^
+> 36 |       const res = await listarFuncionarios()
+     ÔÇª
+     | ^^^^^^^^^
+> 47 |     }
+     | ^^^^^^^^^
+> 48 |   }
+     | ^^^^ `carregarFuncionarios` is declared here
+  49 |
+  50 |   async function carregar() {
+  51 |     try {  react-hooks/immutability
+  31:13  error    Error: Cannot access variable before it is declared
+
+`carregar` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  29 |   useEffect(() => {
+  30 |     carregarFuncionarios()
+> 31 |     if (id) carregar()
+     |             ^^^^^^^^ `carregar` accessed before it is declared
+  32 |   }, [])
+  33 |
+  34 |   async function carregarFuncionarios() {
+
+  48 |   }
+  49 |
+> 50 |   async function carregar() {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 51 |     try {
+     | ^^^^^^^^^
+> 52 |       const res = await buscarFolha(id)
+     ÔÇª
+     | ^^^^^^^^^
+> 62 |     }
+     | ^^^^^^^^^
+> 63 |   }
+     | ^^^^ `carregar` is declared here
+  64 |
+  65 |   async function handleSubmit(e) {
+  66 |     e.preventDefault()                react-hooks/immutability
+  32:6   warning  React Hook useEffect has missing dependencies: 'carregar' and 'id'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\FuncionarioForm.jsx
+  39:25  error    Error: Cannot access variable before it is declared
+
+`carregarFuncionario` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  37 |
+  38 |     useEffect(() => {
+> 39 |         if (modoEdicao) carregarFuncionario()
+     |                         ^^^^^^^^^^^^^^^^^^^ `carregarFuncionario` accessed before it is declared
+  40 |     }, [id])
+  41 |
+  42 |     async function carregarFuncionario() {
+
+  40 |     }, [id])
+  41 |
+> 42 |     async function carregarFuncionario() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 43 |         try {
+     | ^^^^^^^^^^^^^
+> 44 |             const response = await buscarFuncionario(id)
+     ÔÇª
+     | ^^^^^^^^^^^^^
+> 66 |         }
+     | ^^^^^^^^^^^^^
+> 67 |     }
+     | ^^^^^^ `carregarFuncionario` is declared here
+  68 |
+  69 |     function formatarCpf(valor) {
+  70 |         valor = valor.replace(/\D/g, '')  react-hooks/immutability
+  40:8   warning  React Hook useEffect has missing dependencies: 'carregarFuncionario' and 'modoEdicao'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\Funcionarios.jsx
+  54:9  error  React Hook "useAtivoInativoCrud" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\GastoMaquinaForm.jsx
+  31:9  error  Error: Cannot access variable before it is declared
+
+`carregarTipos` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  29 |
+  30 |     useEffect(() => {
+> 31 |         carregarTipos()
+     |         ^^^^^^^^^^^^^ `carregarTipos` accessed before it is declared
+  32 |     }, [])
+  33 |
+  34 |     async function carregarTipos() {
+
+  32 |     }, [])
+  33 |
+> 34 |     async function carregarTipos() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 35 |         const response = await listarTiposGastoMaquina()
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 36 |         if (response.ok && response.data?.success) {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 37 |             setTipos(response.data.data)
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 38 |         }
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 39 |     }
+     | ^^^^^^ `carregarTipos` is declared here
+  40 |
+  41 |     async function handleSubmit(e) {
+  42 |         e.preventDefault()  react-hooks/immutability
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\HoraMaquinaForm.jsx
+  38:9  error    Error: Cannot access variable before it is declared
+
+`carregarMaquina` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  36 |
+  37 |     useEffect(() => {
+> 38 |         carregarMaquina()
+     |         ^^^^^^^^^^^^^^^ `carregarMaquina` accessed before it is declared
+  39 |         carregarOperacoes()
+  40 |     }, [])
+  41 |
+
+  40 |     }, [])
+  41 |
+> 42 |     async function carregarMaquina() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 43 |         const response = await buscarMaquina(id)
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 44 |
+     ÔÇª
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 51 |         }
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 52 |     }
+     | ^^^^^^ `carregarMaquina` is declared here
+  53 |
+  54 |     async function carregarOperacoes() {
+  55 |         try {  react-hooks/immutability
+  39:9  error    Error: Cannot access variable before it is declared
+
+`carregarOperacoes` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  37 |     useEffect(() => {
+  38 |         carregarMaquina()
+> 39 |         carregarOperacoes()
+     |         ^^^^^^^^^^^^^^^^^ `carregarOperacoes` accessed before it is declared
+  40 |     }, [])
+  41 |
+  42 |     async function carregarMaquina() {
+
+  52 |     }
+  53 |
+> 54 |     async function carregarOperacoes() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 55 |         try {
+     | ^^^^^^^^^^^^^
+> 56 |             const response = await listarOperacoesTalhao()
+     ÔÇª
+     | ^^^^^^^^^^^^^
+> 64 |         }
+     | ^^^^^^^^^^^^^
+> 65 |     }
+     | ^^^^^^ `carregarOperacoes` is declared here
+  66 |
+  67 |     const horasCalculadas =
+  68 |         horimetroFinal && horimetroInicial                     react-hooks/immutability
+  40:8  warning  React Hook useEffect has a missing dependency: 'carregarMaquina'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\MaquinaDetalhe.jsx
+  34:8   warning  React Hook useEffect has a missing dependency: 'carregarDados'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  70:18  error    'error' is defined but never used                                                                                 no-unused-vars
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\MaquinaForm.jsx
+   33:9   error    Error: Cannot access variable before it is declared
+
+`carregarTipos` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  31 |
+  32 |     useEffect(() => {
+> 33 |         carregarTipos()
+     |         ^^^^^^^^^^^^^ `carregarTipos` accessed before it is declared
+  34 |         if (modoEdicao) {
+  35 |             carregarMaquina()
+  36 |         }
+
+  37 |     }, [id])
+  38 |
+> 39 |     async function carregarTipos() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 40 |         const response = await listarTiposMaquina()
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 41 |
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |         if (response.ok && response.data?.success) {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 43 |             setTipos(response.data.data)
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 44 |         } else {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 45 |             setErro('Erro ao carregar tipos de m├íquina')
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 46 |         }
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 47 |     }
+     | ^^^^^^ `carregarTipos` is declared here
+  48 |
+  49 |     async function carregarMaquina() {
+  50 |         const response = await buscarMaquina(id)  react-hooks/immutability
+   35:13  error    Error: Cannot access variable before it is declared
+
+`carregarMaquina` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  33 |         carregarTipos()
+  34 |         if (modoEdicao) {
+> 35 |             carregarMaquina()
+     |             ^^^^^^^^^^^^^^^ `carregarMaquina` accessed before it is declared
+  36 |         }
+  37 |     }, [id])
+  38 |
+
+  47 |     }
+  48 |
+> 49 |     async function carregarMaquina() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 50 |         const response = await buscarMaquina(id)
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 51 |
+     ÔÇª
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 65 |         setTipoMaquinaId(m.tipoMaquina?.id || '')
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 66 |     }
+     | ^^^^^^ `carregarMaquina` is declared here
+  67 |
+  68 |     async function handleSubmit(e) {
+  69 |         e.preventDefault()                                                                                                                                                                                                                                                                                                                                                                                                                                       react-hooks/immutability
+   37:8   warning  React Hook useEffect has missing dependencies: 'carregarMaquina' and 'modoEdicao'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               react-hooks/exhaustive-deps
+  113:18  error    'err' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     no-unused-vars
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\MovProdutoForm.jsx
+  18:11  error  'fazendaId' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                no-unused-vars
+  19:11  error  'safraId' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  no-unused-vars
+  44:9   error  Error: Cannot access variable before it is declared
+
+`carregarProdutos` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  42 |
+  43 |     useEffect(() => {
+> 44 |         carregarProdutos()
+     |         ^^^^^^^^^^^^^^^^ `carregarProdutos` accessed before it is declared
+  45 |     }, [])
+  46 |
+  47 |     useEffect(() => {
+
+  53 |     }, [dadosNotaPreenchidos])
+  54 |
+> 55 |     async function carregarProdutos() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 56 |         const response = await listarProdutos()
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 57 |         if (response.ok && response.data?.data?.content) {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 58 |             setProdutos(response.data.data.content)
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 59 |         }
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 60 |     }
+     | ^^^^^^ `carregarProdutos` is declared here
+  61 |
+  62 |     function adicionarItem() {
+  63 |         setItens(prev => [  react-hooks/immutability
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\OperacaoCombustivel.jsx
+  88:6  warning  React Hook useEffect has a missing dependency: 'setTotal'. Either include it or remove the dependency array. If 'setTotal' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\OperacaoDetalhe.jsx
+  17:28  error  'error' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\OperacaoFuncionarios.jsx
+  97:6  warning  React Hook useEffect has a missing dependency: 'setTotal'. Either include it or remove the dependency array. If 'setTotal' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\OperacaoProdutos.jsx
+  90:6  warning  React Hook useEffect has a missing dependency: 'setTotal'. Either include it or remove the dependency array. If 'setTotal' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\OrdemServicoAuditoria.jsx
+  34:6  warning  React Hook useEffect has missing dependencies: 'carregar' and 'podeVer'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\OrdemServicoAuditoriaDetalhe.jsx
+  13:9  error    'navigate' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                     no-unused-vars
+  21:6  warning  React Hook useEffect has a missing dependency: 'carregar'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\OrdemServicoForm.jsx
+  24:5  error  Error: Cannot access variable before it is declared
+
+`carregar` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  22 |
+  23 |   useEffect(() => {
+> 24 |     carregar()
+     |     ^^^^^^^^ `carregar` accessed before it is declared
+  25 |   }, [])
+  26 |
+  27 |   async function carregar() {
+
+  25 |   }, [])
+  26 |
+> 27 |   async function carregar() {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 28 |     try {
+     | ^^^^^^^^^
+> 29 |       const res = await listarPlanejamentos()
+     ÔÇª
+     | ^^^^^^^^^
+> 44 |     }
+     | ^^^^^^^^^
+> 45 |   }
+     | ^^^^ `carregar` is declared here
+  46 |
+  47 |   async function handleSubmit(e) {
+  48 |     e.preventDefault()  react-hooks/immutability
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\OrdemServicoList.jsx
+  29:9  error  'queryClient' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\OrdemServicoTurmas.jsx
+  30:5   error    Error: Cannot access variable before it is declared
+
+`carregarTurmas` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  28 |
+  29 |   useEffect(() => {
+> 30 |     carregarTurmas()
+     |     ^^^^^^^^^^^^^^ `carregarTurmas` accessed before it is declared
+  31 |     carregarApontamentos()
+  32 |   }, [])
+  33 |
+
+  32 |   }, [])
+  33 |
+> 34 |   async function carregarTurmas() {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 35 |     try {
+     | ^^^^^^^^^
+> 36 |       const res = await listarTurmas()
+     | ^^^^^^^^^
+> 37 |       setTurmas(res.data?.data || [])
+     | ^^^^^^^^^
+> 38 |     } catch (err) {
+     | ^^^^^^^^^
+> 39 |       setErro('Erro ao carregar turmas')
+     | ^^^^^^^^^
+> 40 |     }
+     | ^^^^^^^^^
+> 41 |   }
+     | ^^^^ `carregarTurmas` is declared here
+  42 |
+  43 |   async function carregarApontamentos() {
+  44 |     try {                                                                                                         react-hooks/immutability
+  31:5   error    Error: Cannot access variable before it is declared
+
+`carregarApontamentos` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  29 |   useEffect(() => {
+  30 |     carregarTurmas()
+> 31 |     carregarApontamentos()
+     |     ^^^^^^^^^^^^^^^^^^^^ `carregarApontamentos` accessed before it is declared
+  32 |   }, [])
+  33 |
+  34 |   async function carregarTurmas() {
+
+  41 |   }
+  42 |
+> 43 |   async function carregarApontamentos() {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 44 |     try {
+     | ^^^^^^^^^
+> 45 |       const res = await listarApontamentosTurmaPorOs(id)
+     | ^^^^^^^^^
+> 46 |       setApontamentos(res.data?.data || [])
+     | ^^^^^^^^^
+> 47 |     } catch (err) {
+     | ^^^^^^^^^
+> 48 |       setErro('Erro ao carregar apontamentos')
+     | ^^^^^^^^^
+> 49 |     }
+     | ^^^^^^^^^
+> 50 |   }
+     | ^^^^ `carregarApontamentos` is declared here
+  51 |
+  52 |   async function handleSubmit(e) {
+  53 |     e.preventDefault()  react-hooks/immutability
+  32:6   warning  React Hook useEffect has a missing dependency: 'carregarApontamentos'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         react-hooks/exhaustive-deps
+  38:14  error    'err' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 no-unused-vars
+  47:14  error    'err' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 no-unused-vars
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\PedidoCompraForm.jsx
+  27:16  error    'setErro' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                no-unused-vars
+  31:5   error    Error: Cannot access variable before it is declared
+
+`carregarProdutos` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  29 |
+  30 |   useEffect(() => {
+> 31 |     carregarProdutos()
+     |     ^^^^^^^^^^^^^^^^ `carregarProdutos` accessed before it is declared
+  32 |     if (id) carregar()
+  33 |   }, [])
+  34 |
+
+  33 |   }, [])
+  34 |
+> 35 |   async function carregarProdutos() {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 36 |     const res = await listarProdutos()
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 37 |     setProdutos(res.data?.data || [])
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 38 |   }
+     | ^^^^ `carregarProdutos` is declared here
+  39 |
+  40 |   async function carregar() {
+  41 |     const res = await buscarPedidoCompra(id)  react-hooks/immutability
+  32:13  error    Error: Cannot access variable before it is declared
+
+`carregar` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  30 |   useEffect(() => {
+  31 |     carregarProdutos()
+> 32 |     if (id) carregar()
+     |             ^^^^^^^^ `carregar` accessed before it is declared
+  33 |   }, [])
+  34 |
+  35 |   async function carregarProdutos() {
+
+  38 |   }
+  39 |
+> 40 |   async function carregar() {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 41 |     const res = await buscarPedidoCompra(id)
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |     setItens(res.data?.data?.itens || [])
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 43 |   }
+     | ^^^^ `carregar` is declared here
+  44 |
+  45 |   function adicionarItem() {
+  46 |     if (!produtoId) return      react-hooks/immutability
+  33:6   warning  React Hook useEffect has missing dependencies: 'carregar' and 'id'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\PlanejamentoComparativo.jsx
+  21:6  warning  React Hook useEffect has a missing dependency: 'carregar'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\PlanejamentoComparativoDetalhado.jsx
+  21:6  warning  React Hook useEffect has a missing dependency: 'carregar'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\PlanejamentoForm.jsx
+  33:5  error  Error: Cannot access variable before it is declared
+
+`carregarProdutos` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  31 |
+  32 |   useEffect(() => {
+> 33 |     carregarProdutos()
+     |     ^^^^^^^^^^^^^^^^ `carregarProdutos` accessed before it is declared
+  34 |   }, [])
+  35 |
+  36 |   async function carregarProdutos() {
+
+  34 |   }, [])
+  35 |
+> 36 |   async function carregarProdutos() {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 37 |     try {
+     | ^^^^^^^^^
+> 38 |       const res = await listarProdutos()
+     | ^^^^^^^^^
+> 39 |       setProdutos(res.data?.data?.content || res.data?.data || [])
+     | ^^^^^^^^^
+> 40 |     } catch (err) {
+     | ^^^^^^^^^
+> 41 |       console.error(err)
+     | ^^^^^^^^^
+> 42 |       setErro('Erro ao carregar produtos')
+     | ^^^^^^^^^
+> 43 |     }
+     | ^^^^^^^^^
+> 44 |   }
+     | ^^^^ `carregarProdutos` is declared here
+  45 |
+  46 |   async function handleSubmit(e) {
+  47 |     e.preventDefault()  react-hooks/immutability
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\PlanejamentoFuncionarios.jsx
+  37:5  error  Error: Cannot access variable before it is declared
+
+`carregarDados` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  35 |
+  36 |   useEffect(() => {
+> 37 |     carregarDados()
+     |     ^^^^^^^^^^^^^ `carregarDados` accessed before it is declared
+  38 |   }, [])
+  39 |
+  40 |   async function carregarDados() {
+
+  38 |   }, [])
+  39 |
+> 40 |   async function carregarDados() {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 41 |     try {
+     | ^^^^^^^^^
+> 42 |       const [resFunc, resTerc, resTurma] = await Promise.all([
+     ÔÇª
+     | ^^^^^^^^^
+> 70 |     }
+     | ^^^^^^^^^
+> 71 |   }
+     | ^^^^ `carregarDados` is declared here
+  72 |
+  73 |   function calcularCusto(payload) {
+  74 |  react-hooks/immutability
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\PlanejamentoInsumos.jsx
+  39:5  error    Error: Cannot access variable before it is declared
+
+`carregarTudo` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  37 |     }
+  38 |
+> 39 |     carregarTudo()
+     |     ^^^^^^^^^^^^ `carregarTudo` accessed before it is declared
+  40 |   }, [id])
+  41 |
+  42 |   async function carregarTudo() {
+
+  40 |   }, [id])
+  41 |
+> 42 |   async function carregarTudo() {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 43 |     await Promise.all([
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 44 |       carregarProdutos(),
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 45 |       carregarInsumos(),
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 46 |       carregarResumo()
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 47 |     ])
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 48 |   }
+     | ^^^^ `carregarTudo` is declared here
+  49 |
+  50 |   async function carregarProdutos() {
+  51 |     const res = await listarProdutos()  react-hooks/immutability
+  40:6  warning  React Hook useEffect has a missing dependency: 'carregarTudo'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\PlanejamentoMaquinas.jsx
+  32:10  error    'resumo' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                no-unused-vars
+  38:5   error    Error: Cannot access variable before it is declared
+
+`carregarTudo` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  36 |
+  37 |   useEffect(() => {
+> 38 |     carregarTudo()
+     |     ^^^^^^^^^^^^ `carregarTudo` accessed before it is declared
+  39 |   }, [])
+  40 |
+  41 |   async function carregarTudo() {
+
+  39 |   }, [])
+  40 |
+> 41 |   async function carregarTudo() {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |     await Promise.all([
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 43 |       carregarMaquinas(),
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 44 |       carregarItens(),
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 45 |       carregarResumo()
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 46 |     ])
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 47 |   }
+     | ^^^^ `carregarTudo` is declared here
+  48 |
+  49 |   async function carregarMaquinas() {
+  50 |     const res = await listarMaquinas()  react-hooks/immutability
+  39:6   warning  React Hook useEffect has a missing dependency: 'carregarTudo'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\PlanejamentoNovo.jsx
+  28:5  error    Error: Cannot access variable before it is declared
+
+`criar` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  26 |     jaExecutou.current = true
+  27 |
+> 28 |     criar()
+     |     ^^^^^ `criar` accessed before it is declared
+  29 |
+  30 |   }, [safraTalhaoId])
+  31 |
+
+  30 |   }, [safraTalhaoId])
+  31 |
+> 32 |   async function criar() {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^
+> 33 |
+     | ^
+> 34 |     try {
+     ÔÇª
+     | ^
+> 70 |     }
+     | ^
+> 71 |   }
+     | ^^^^ `criar` is declared here
+  72 |
+  73 |   return (
+  74 |     <PageLayout title="Criando Planejamento...">  react-hooks/immutability
+  30:6  warning  React Hook useEffect has a missing dependency: 'criar'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\PlanejamentoResumo.jsx
+  21:6  warning  React Hook useEffect has a missing dependency: 'carregar'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\ProdutoDetalhe.jsx
+  23:8  warning  React Hook useEffect has a missing dependency: 'carregar'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\ProdutoForm.jsx
+  40:9   error    Error: Cannot access variable before it is declared
+
+`carregarReferencias` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  38 |
+  39 |     useEffect(() => {
+> 40 |         carregarReferencias()
+     |         ^^^^^^^^^^^^^^^^^^^ `carregarReferencias` accessed before it is declared
+  41 |         if (modoEdicao) carregarProduto()
+  42 |     }, [id])
+  43 |
+
+  42 |     }, [id])
+  43 |
+> 44 |     async function carregarReferencias() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 45 |         const g = await listarGrupos()
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 46 |         const f = await listarFamilias()
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 47 |
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 48 |         if (g.ok) setGrupos(g.data?.data || [])
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 49 |         if (f.ok) setFamilias(f.data?.data || [])
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 50 |     }
+     | ^^^^^^ `carregarReferencias` is declared here
+  51 |
+  52 |     async function carregarProduto() {
+  53 |         const response = await buscarProduto(id)  react-hooks/immutability
+  41:25  error    Error: Cannot access variable before it is declared
+
+`carregarProduto` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  39 |     useEffect(() => {
+  40 |         carregarReferencias()
+> 41 |         if (modoEdicao) carregarProduto()
+     |                         ^^^^^^^^^^^^^^^ `carregarProduto` accessed before it is declared
+  42 |     }, [id])
+  43 |
+  44 |     async function carregarReferencias() {
+
+  50 |     }
+  51 |
+> 52 |     async function carregarProduto() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 53 |         const response = await buscarProduto(id)
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 54 |
+     ÔÇª
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 70 |         setPrecoCusto(p.precoCusto ?? '') // ­ƒöÑ NOVO
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 71 |     }
+     | ^^^^^^ `carregarProduto` is declared here
+  72 |
+  73 |     async function handleSubmit(e) {
+  74 |         e.preventDefault()                                                                                                                                               react-hooks/immutability
+  42:8   warning  React Hook useEffect has missing dependencies: 'carregarProduto' and 'modoEdicao'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\ProprietarioForm.jsx
+  34:25  error    Error: Cannot access variable before it is declared
+
+`carregarProprietario` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  32 |
+  33 |     useEffect(() => {
+> 34 |         if (modoEdicao) carregarProprietario()
+     |                         ^^^^^^^^^^^^^^^^^^^^ `carregarProprietario` accessed before it is declared
+  35 |     }, [id])
+  36 |
+  37 |     async function carregarProprietario() {
+
+  35 |     }, [id])
+  36 |
+> 37 |     async function carregarProprietario() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 38 |         try {
+     | ^^^^^^^^^^^^^
+> 39 |             const response = await buscarProprietario(id)
+     ÔÇª
+     | ^^^^^^^^^^^^^
+> 57 |         }
+     | ^^^^^^^^^^^^^
+> 58 |     }
+     | ^^^^^^ `carregarProprietario` is declared here
+  59 |
+  60 |     function formatarCpf(valor) {
+  61 |         valor = valor.replace(/\D/g, '')  react-hooks/immutability
+  35:8   warning  React Hook useEffect has missing dependencies: 'carregarProprietario' and 'modoEdicao'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\SafraTalhaoForm.jsx
+  64:13  error    Error: Cannot access variable before it is declared
+
+`carregarSelects` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  62 |   useEffect(() => {
+  63 |     async function init() {
+> 64 |       await carregarSelects()
+     |             ^^^^^^^^^^^^^^^ `carregarSelects` accessed before it is declared
+  65 |       if (modoEdicao) {
+  66 |         await carregar()
+  67 |       }
+
+  70 |   }, [id])
+  71 |
+> 72 |   async function carregarSelects() {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 73 |     try {
+     | ^^^^^^^^^
+> 74 |       const t = await listarTalhoes()
+     ÔÇª
+     | ^^^^^^^^^
+> 87 |     }
+     | ^^^^^^^^^
+> 88 |   }
+     | ^^^^ `carregarSelects` is declared here
+  89 |
+  90 |   async function carregar() {
+  91 |     try {  react-hooks/immutability
+  66:15  error    Error: Cannot access variable before it is declared
+
+`carregar` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  64 |       await carregarSelects()
+  65 |       if (modoEdicao) {
+> 66 |         await carregar()
+     |               ^^^^^^^^ `carregar` accessed before it is declared
+  67 |       }
+  68 |     }
+  69 |     init()
+
+   88 |   }
+   89 |
+>  90 |   async function carregar() {
+      |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |     try {
+      | ^^^^^^^^^
+>  92 |       const response = await buscarSafraTalhao(id)
+      ÔÇª
+      | ^^^^^^^^^
+> 127 |     }
+      | ^^^^^^^^^
+> 128 |   }
+      | ^^^^ `carregar` is declared here
+  129 |
+  130 |   async function carregarTalhaoSelecionado(id) {
+  131 |     try {                                react-hooks/immutability
+  70:6   warning  React Hook useEffect has missing dependencies: 'carregar' and 'modoEdicao'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\SafraTalhoes.jsx
+  31:6  warning  React Hook useEffect has a missing dependency: 'queryClient'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\TalhaoForm.jsx
+  36:9   error    Error: Cannot access variable before it is declared
+
+`carregarReferencias` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  34 |
+  35 |     useEffect(() => {
+> 36 |         carregarReferencias()
+     |         ^^^^^^^^^^^^^^^^^^^ `carregarReferencias` accessed before it is declared
+  37 |         if (modoEdicao) carregarTalhao()
+  38 |     }, [id])
+  39 |
+
+  38 |     }, [id])
+  39 |
+> 40 |     async function carregarReferencias() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 41 |         try {
+     | ^^^^^^^^^^^^^
+> 42 |             const ferrugemRes = await listarResFerrugem()
+     ÔÇª
+     | ^^^^^^^^^^^^^
+> 50 |         }
+     | ^^^^^^^^^^^^^
+> 51 |     }
+     | ^^^^^^ `carregarReferencias` is declared here
+  52 |
+  53 |     async function carregarTalhao() {
+  54 |         try {                              react-hooks/immutability
+  37:25  error    Error: Cannot access variable before it is declared
+
+`carregarTalhao` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  35 |     useEffect(() => {
+  36 |         carregarReferencias()
+> 37 |         if (modoEdicao) carregarTalhao()
+     |                         ^^^^^^^^^^^^^^ `carregarTalhao` accessed before it is declared
+  38 |     }, [id])
+  39 |
+  40 |     async function carregarReferencias() {
+
+  51 |     }
+  52 |
+> 53 |     async function carregarTalhao() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 54 |         try {
+     | ^^^^^^^^^^^^^
+> 55 |             const response = await buscarTalhao(id)
+     ÔÇª
+     | ^^^^^^^^^^^^^
+> 78 |         }
+     | ^^^^^^^^^^^^^
+> 79 |     }
+     | ^^^^^^ `carregarTalhao` is declared here
+  80 |
+  81 |     async function handleSubmit(e) {
+  82 |         e.preventDefault()  react-hooks/immutability
+  38:8   warning  React Hook useEffect has missing dependencies: 'carregarTalhao' and 'modoEdicao'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               react-hooks/exhaustive-deps
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\TerceirizadoForm.jsx
+  38:25  error    Error: Cannot access variable before it is declared
+
+`carregar` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  36 |
+  37 |     useEffect(() => {
+> 38 |         if (modoEdicao) carregar()
+     |                         ^^^^^^^^ `carregar` accessed before it is declared
+  39 |     }, [id])
+  40 |
+  41 |     async function carregar() {
+
+  39 |     }, [id])
+  40 |
+> 41 |     async function carregar() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |         try {
+     | ^^^^^^^^^^^^^
+> 43 |             const response = await buscarTerceirizadoPorId(id)
+     ÔÇª
+     | ^^^^^^^^^^^^^
+> 63 |         }
+     | ^^^^^^^^^^^^^
+> 64 |     }
+     | ^^^^^^ `carregar` is declared here
+  65 |
+  66 |     function formatarCpf(valor) {
+  67 |         valor = valor.replace(/\D/g, '')  react-hooks/immutability
+  39:8   warning  React Hook useEffect has missing dependencies: 'carregar' and 'modoEdicao'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               react-hooks/exhaustive-deps
+  61:18  error    'err' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              no-unused-vars
+
+C:\lafayete\inovaceifa-api\front-end\frontend\src\pages\TurmaTerceirizadaForm.jsx
+  37:9   error    Error: Cannot access variable before it is declared
+
+`carregarOperacoes` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  35 |
+  36 |     useEffect(() => {
+> 37 |         carregarOperacoes()
+     |         ^^^^^^^^^^^^^^^^^ `carregarOperacoes` accessed before it is declared
+  38 |         if (modoEdicao) carregar()
+  39 |     }, [id])
+  40 |
+
+  39 |     }, [id])
+  40 |
+> 41 |     async function carregarOperacoes() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |         try {
+     | ^^^^^^^^^^^^^
+> 43 |             const res = await listarOperacoes()
+     | ^^^^^^^^^^^^^
+> 44 |             setOperacoes(res.data?.data || [])
+     | ^^^^^^^^^^^^^
+> 45 |         } catch {
+     | ^^^^^^^^^^^^^
+> 46 |             setOperacoes([])
+     | ^^^^^^^^^^^^^
+> 47 |         }
+     | ^^^^^^^^^^^^^
+> 48 |     }
+     | ^^^^^^ `carregarOperacoes` is declared here
+  49 |
+  50 |     async function carregar() {
+  51 |         const res = await buscarTurmaTerceirizada(id)  react-hooks/immutability
+  38:25  error    Error: Cannot access variable before it is declared
+
+`carregar` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  36 |     useEffect(() => {
+  37 |         carregarOperacoes()
+> 38 |         if (modoEdicao) carregar()
+     |                         ^^^^^^^^ `carregar` accessed before it is declared
+  39 |     }, [id])
+  40 |
+  41 |     async function carregarOperacoes() {
+
+  48 |     }
+  49 |
+> 50 |     async function carregar() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 51 |         const res = await buscarTurmaTerceirizada(id)
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 52 |         const t = res.data?.data
+     ÔÇª
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 63 |         setOperacaoId(t.operacaoId || '')
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 64 |     }
+     | ^^^^^^ `carregar` is declared here
+  65 |
+  66 |     async function handleSubmit(e) {
+  67 |         e.preventDefault()                      react-hooks/immutability
+  39:8   warning  React Hook useEffect has missing dependencies: 'carregar' and 'modoEdicao'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        react-hooks/exhaustive-deps
+
+Ô£û 92 problems (64 errors, 28 warnings)
+

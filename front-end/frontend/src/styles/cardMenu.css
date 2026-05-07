@@ -1,0 +1,41 @@
+.card-menu {
+    position: relative;
+}
+
+.menu-button {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+.menu-dropdown {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+    z-index: 10;
+}
+
+.menu-dropdown button {
+    background: none;
+    border: none;
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.menu-dropdown button:hover {
+    background: #f0f0f0;
+}
+
+.menu-dropdown .danger {
+    color: #c62828;
+}

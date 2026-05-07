@@ -1,0 +1,89 @@
+.form-page {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.form-container {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: green;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cnpj-row {
+    display: flex;
+    gap: 10px;
+}
+
+.cnpj-row input {
+    flex: 1;
+}
+
+.cnpj-row button {
+    height: 38px;
+    padding: 0 14px;
+    font-size: 13px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .cidade {
+    flex: 2;
+}
+
+.form-row .estado {
+    flex: 1;
+    max-width: 100px;
+}
+.form-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.form-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+}
+
+.form-grid-5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-md);
+}
+

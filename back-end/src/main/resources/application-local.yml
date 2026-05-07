@@ -1,0 +1,10 @@
+DB_HOST: localhost
+DB_PORT: 3306
+DB_NAME: bd_inovaceifa
+DB_USER: root
+DB_PASSWORD: 159357
+MAIL_USERNAME: lafayette.m@gmail.com
+MAIL_PASSWORD: jqqgpbcftltybhup
+JWT_SECRET: InovaceifaSuperSecretKey2025
+JWT_EXPIRATION: 86400000
+
