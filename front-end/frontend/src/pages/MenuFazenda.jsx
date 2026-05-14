@@ -62,6 +62,7 @@ export default function MenuFazenda() {
     const modulosFinanceiro = [
         { nome: 'Dashboard Safra', rota: '/dashboard-safra', icon: BarChart3, descricao: 'Indicadores e custos da safra' },
         { nome: 'Comparativo Talhões', rota: '/bi/comparativo-talhoes', icon: BarChart3,  descricao: 'Indicadores comparativos e rankings'},
+        { nome: 'Comparativo Safras', rota: '/bi/comparativo-safras', icon: BarChart3,  descricao: 'Evolução financeira entre safras'},
         { nome: 'Relatório', rota: '/relatorio', icon: PieChart, descricao: 'Resultado financeiro da safra' },
         { nome: 'Visão Gerencial', rota: '/relatorios/gestao-vista', icon: BarChart3, descricao: 'Resultado consolidado por talhão' },
         { nome: 'Financeiro', rota: '/financeiro', icon: DollarSign, descricao: 'Controle de custos e receitas' },

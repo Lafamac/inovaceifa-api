@@ -725,6 +725,23 @@ export default function Sidebar({
 
                             </NavLink>
 
+                            <NavLink
+                                to="/bi/comparativo-safras"
+                                className="sidebar-item"
+                                style={{ paddingLeft: '36px' }}
+                            >
+
+                                <BarChart3
+                                    size={16}
+                                    style={{ marginRight: 8 }}
+                                />
+
+                                <span>
+                                    Comparativo Safras
+                                </span>
+
+                            </NavLink>
+
                         </>
                     )}
 

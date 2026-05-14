@@ -1,23 +1,24 @@
 import { useEffect, useState } from 'react'
 
 import {
-    BarChart,
-    Bar,
+    LineChart,
+    Line,
     XAxis,
     YAxis,
     Tooltip,
     ResponsiveContainer,
-    CartesianGrid
+    CartesianGrid,
+    Legend
 } from 'recharts'
 
 import PageLayout from '../components/PageLayout'
 import Alert from '../components/Alert'
 
 import {
-    obterComparativoTalhoes
+    obterComparativoSafras
 } from '../api/api'
 
-export default function ComparativoTalhoesPage() {
+export default function ComparativoSafrasPage() {
 
     const [data, setData] = useState(null)
 
@@ -34,7 +35,7 @@ export default function ComparativoTalhoesPage() {
         try {
 
             const res =
-                await obterComparativoTalhoes()
+                await obterComparativoSafras()
 
             if (
                 !res.ok ||
@@ -85,7 +86,7 @@ export default function ComparativoTalhoesPage() {
     if (loading) {
 
         return (
-            <PageLayout title="Comparativo Talhões">
+            <PageLayout title="Comparativo Safras">
                 Carregando...
             </PageLayout>
         )
@@ -94,7 +95,7 @@ export default function ComparativoTalhoesPage() {
     if (erro) {
 
         return (
-            <PageLayout title="Comparativo Talhões">
+            <PageLayout title="Comparativo Safras">
                 <Alert
                     type="error"
                     message={erro}
@@ -108,7 +109,7 @@ export default function ComparativoTalhoesPage() {
     return (
 
         <PageLayout
-            title="Comparativo Talhões"
+            title="Comparativo Safras"
             showBack
             backTo="/menu"
         >
@@ -127,12 +128,12 @@ export default function ComparativoTalhoesPage() {
                 <div className="card">
 
                     <strong>
-                        🏆 Melhor Lucro
+                        🏆 Melhor Safra
                     </strong>
 
                     <p>
                         {
-                            data.melhorLucro?.talhaoNome
+                            data.melhorSafra?.safraNome
                         }
                     </p>
 
@@ -141,12 +142,12 @@ export default function ComparativoTalhoesPage() {
                 <div className="card">
 
                     <strong>
-                        🌱 Melhor Produtividade
+                        💰 Maior Lucro
                     </strong>
 
                     <p>
                         {
-                            data.melhorProdutividade?.talhaoNome
+                            data.maiorLucro?.safraNome
                         }
                     </p>
 
@@ -155,12 +156,12 @@ export default function ComparativoTalhoesPage() {
                 <div className="card">
 
                     <strong>
-                        ⚠️ Pior Margem
+                        🌱 Maior Produtividade
                     </strong>
 
                     <p>
                         {
-                            data.piorMargem?.talhaoNome
+                            data.maiorProdutividade?.safraNome
                         }
                     </p>
 
@@ -177,7 +178,7 @@ export default function ComparativoTalhoesPage() {
             >
 
                 <h3>
-                    Lucro por Talhão
+                    Lucro por Safra
                 </h3>
 
                 <div
@@ -189,7 +190,7 @@ export default function ComparativoTalhoesPage() {
 
                     <ResponsiveContainer>
 
-                        <BarChart
+                        <LineChart
                             data={data.itens}
                         >
 
@@ -198,18 +199,21 @@ export default function ComparativoTalhoesPage() {
                             />
 
                             <XAxis
-                                dataKey="talhaoNome"
+                                dataKey="safraNome"
                             />
 
                             <YAxis />
 
                             <Tooltip />
 
-                            <Bar
+                            <Legend />
+
+                            <Line
+                                type="monotone"
                                 dataKey="lucro"
                             />
 
-                        </BarChart>
+                        </LineChart>
 
                     </ResponsiveContainer>
 
@@ -217,7 +221,7 @@ export default function ComparativoTalhoesPage() {
 
             </div>
 
-            {/* 🔥 GRÁFICO PRODUTIVIDADE */}
+            {/* 🔥 PRODUTIVIDADE */}
             <div
                 className="card"
                 style={{
@@ -238,7 +242,7 @@ export default function ComparativoTalhoesPage() {
 
                     <ResponsiveContainer>
 
-                        <BarChart
+                        <LineChart
                             data={data.itens}
                         >
 
@@ -247,18 +251,21 @@ export default function ComparativoTalhoesPage() {
                             />
 
                             <XAxis
-                                dataKey="talhaoNome"
+                                dataKey="safraNome"
                             />
 
                             <YAxis />
 
                             <Tooltip />
 
-                            <Bar
+                            <Legend />
+
+                            <Line
+                                type="monotone"
                                 dataKey="produtividade"
                             />
 
-                        </BarChart>
+                        </LineChart>
 
                     </ResponsiveContainer>
 
@@ -266,7 +273,7 @@ export default function ComparativoTalhoesPage() {
 
             </div>
 
-            {/* 🔥 GRÁFICO CUSTO */}
+            {/* 🔥 MARGEM */}
             <div
                 className="card"
                 style={{
@@ -275,7 +282,7 @@ export default function ComparativoTalhoesPage() {
             >
 
                 <h3>
-                    Custo por Talhão
+                    Margem
                 </h3>
 
                 <div
@@ -287,7 +294,7 @@ export default function ComparativoTalhoesPage() {
 
                     <ResponsiveContainer>
 
-                        <BarChart
+                        <LineChart
                             data={data.itens}
                         >
 
@@ -296,18 +303,73 @@ export default function ComparativoTalhoesPage() {
                             />
 
                             <XAxis
-                                dataKey="talhaoNome"
+                                dataKey="safraNome"
                             />
 
                             <YAxis />
 
                             <Tooltip />
 
-                            <Bar
-                                dataKey="custo"
+                            <Legend />
+
+                            <Line
+                                type="monotone"
+                                dataKey="margem"
                             />
 
-                        </BarChart>
+                        </LineChart>
+
+                    </ResponsiveContainer>
+
+                </div>
+
+            </div>
+
+            {/* 🔥 CUSTO/SACA */}
+            <div
+                className="card"
+                style={{
+                    marginBottom: 20
+                }}
+            >
+
+                <h3>
+                    Custo por Saca
+                </h3>
+
+                <div
+                    style={{
+                        width: '100%',
+                        height: 320
+                    }}
+                >
+
+                    <ResponsiveContainer>
+
+                        <LineChart
+                            data={data.itens}
+                        >
+
+                            <CartesianGrid
+                                strokeDasharray="3 3"
+                            />
+
+                            <XAxis
+                                dataKey="safraNome"
+                            />
+
+                            <YAxis />
+
+                            <Tooltip />
+
+                            <Legend />
+
+                            <Line
+                                type="monotone"
+                                dataKey="custoPorSaca"
+                            />
+
+                        </LineChart>
 
                     </ResponsiveContainer>
 
@@ -319,7 +381,7 @@ export default function ComparativoTalhoesPage() {
             <div className="card">
 
                 <h3>
-                    Comparativo
+                    Evolução das Safras
                 </h3>
 
                 <table
@@ -333,12 +395,12 @@ export default function ComparativoTalhoesPage() {
 
                         <tr>
 
-                            <th>Talhão</th>
-                            <th>Produtividade</th>
-                            <th>Custo</th>
+                            <th>Safra</th>
                             <th>Receita</th>
+                            <th>Custo</th>
                             <th>Lucro</th>
                             <th>Margem</th>
+                            <th>Produtividade</th>
 
                         </tr>
 
@@ -352,13 +414,13 @@ export default function ComparativoTalhoesPage() {
                                 <tr key={idx}>
 
                                     <td>
-                                        {item.talhaoNome}
+                                        {item.safraNome}
                                     </td>
 
                                     <td>
                                         {
-                                            numero(
-                                                item.produtividade
+                                            moeda(
+                                                item.receita
                                             )
                                         }
                                     </td>
@@ -367,14 +429,6 @@ export default function ComparativoTalhoesPage() {
                                         {
                                             moeda(
                                                 item.custo
-                                            )
-                                        }
-                                    </td>
-
-                                    <td>
-                                        {
-                                            moeda(
-                                                item.receita
                                             )
                                         }
                                     </td>
@@ -401,6 +455,14 @@ export default function ComparativoTalhoesPage() {
                                                 item.margem
                                             )
                                         }%
+                                    </td>
+
+                                    <td>
+                                        {
+                                            numero(
+                                                item.produtividade
+                                            )
+                                        }
                                     </td>
 
                                 </tr>

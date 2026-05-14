@@ -1,7 +1,7 @@
 package com.inovaceifa.api.controller;
 
 import com.inovaceifa.api.dto.ApiResponseDTO;
-import com.inovaceifa.api.dto.bi.BiComparativoTalhaoResponseDTO;
+import com.inovaceifa.api.dto.bi.*;
 import com.inovaceifa.api.service.BiService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +28,22 @@ public class BiController {
                 ApiResponseDTO.success(
                         service.comparativoTalhoes(),
                         "Comparativo de talhões gerado com sucesso"
+                )
+        );
+    }
+
+    /* =========================================================
+       🔥 COMPARATIVO SAFRAS
+       ========================================================= */
+
+    @GetMapping("/comparativo-safras")
+    public ResponseEntity<ApiResponseDTO<BiComparativoSafraResponseDTO>>
+    comparativoSafras() {
+
+        return ResponseEntity.ok(
+                ApiResponseDTO.success(
+                        service.comparativoSafras(),
+                        "Comparativo de safras gerado com sucesso"
                 )
         );
     }

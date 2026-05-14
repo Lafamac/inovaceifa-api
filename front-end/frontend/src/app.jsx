@@ -82,6 +82,7 @@ import GestaoVistaPage from './pages/GestaoVistaPage'
 import VendasPage from './pages/VendasPage'
 import VendaForm from './pages/VendaForm'
 import ComparativoTalhoesPage from './pages/ComparativoTalhoesPage'
+import ComparativoSafrasPage from './pages/ComparativoSafrasPage'
 
 
 export default function App() {
@@ -219,6 +220,7 @@ export default function App() {
             <Route path="/vendas" element={<PrivateRoute><OperationLayout><VendasPage /></OperationLayout></PrivateRoute>}/>
             <Route path="/vendas/novo" element={<PrivateRoute><OperationLayout><VendaForm /></OperationLayout></PrivateRoute>}/>
             <Route path="/bi/comparativo-talhoes" element={<PrivateRoute><OperationLayout><ComparativoTalhoesPage /></OperationLayout></PrivateRoute>}/>
+            <Route path="/bi/comparativo-safras"  element={<PrivateRoute><OperationLayout><ComparativoSafrasPage /></OperationLayout></PrivateRoute>}/>
 
             <Route path="*" element={<Navigate to="/" />} />
 

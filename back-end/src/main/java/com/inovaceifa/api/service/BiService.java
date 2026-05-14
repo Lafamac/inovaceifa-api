@@ -1,8 +1,11 @@
 package com.inovaceifa.api.service;
 
 import com.inovaceifa.api.dto.bi.*;
+import com.inovaceifa.api.dto.dashboard.DashboardSafraResponseDTO;
 import com.inovaceifa.api.dto.relatorio.GestaoVistaDTO;
 import com.inovaceifa.api.dto.relatorio.GestaoVistaResponseDTO;
+import com.inovaceifa.api.model.Safra;
+import com.inovaceifa.api.repository.SafraRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +19,12 @@ import java.util.List;
 public class BiService {
 
     private final GestaoVistaService gestaoVistaService;
+    private final DashboardService dashboardService;
+    private final SafraRepository safraRepository;
+
+    /* =========================================================
+       🔥 COMPARATIVO TALHÕES
+       ========================================================= */
 
     public BiComparativoTalhaoResponseDTO comparativoTalhoes() {
 
@@ -25,7 +34,7 @@ public class BiService {
         List<BiComparativoTalhaoDTO> itens =
                 gestao.getItens()
                         .stream()
-                        .map(this::toDTO)
+                        .map(this::toTalhaoDTO)
                         .toList();
 
         BiComparativoTalhaoDTO melhorLucro =
@@ -66,10 +75,61 @@ public class BiService {
     }
 
     /* =========================================================
-       🔥 CONVERSÃO
+       🔥 COMPARATIVO SAFRAS
        ========================================================= */
 
-    private BiComparativoTalhaoDTO toDTO(
+    public BiComparativoSafraResponseDTO comparativoSafras() {
+
+        List<Safra> safras =
+                safraRepository.findAll();
+
+        List<BiComparativoSafraDTO> itens =
+                safras.stream()
+                        .map(this::toSafraDTO)
+                        .toList();
+
+        BiComparativoSafraDTO melhorSafra =
+                itens.stream()
+                        .max(Comparator.comparing(
+                                i -> nvl(i.getMargem())
+                        ))
+                        .orElse(null);
+
+        BiComparativoSafraDTO piorSafra =
+                itens.stream()
+                        .min(Comparator.comparing(
+                                i -> nvl(i.getMargem())
+                        ))
+                        .orElse(null);
+
+        BiComparativoSafraDTO maiorProdutividade =
+                itens.stream()
+                        .max(Comparator.comparing(
+                                i -> nvl(i.getProdutividade())
+                        ))
+                        .orElse(null);
+
+        BiComparativoSafraDTO maiorLucro =
+                itens.stream()
+                        .max(Comparator.comparing(
+                                i -> nvl(i.getLucro())
+                        ))
+                        .orElse(null);
+
+        return BiComparativoSafraResponseDTO.builder()
+                .itens(itens)
+                .melhorSafra(melhorSafra)
+                .piorSafra(piorSafra)
+                .maiorProdutividade(maiorProdutividade)
+                .maiorLucro(maiorLucro)
+                .build();
+    }
+
+    /* =========================================================
+       🔥 TALHÃO DTO
+       ========================================================= */
+
+    private BiComparativoTalhaoDTO toTalhaoDTO(
             GestaoVistaDTO dto
     ) {
 
@@ -147,6 +207,106 @@ public class BiService {
                 )
 
                 .build();
+    }
+
+    /* =========================================================
+       🔥 SAFRA DTO
+       ========================================================= */
+
+    private BiComparativoSafraDTO toSafraDTO(
+            Safra safra
+    ) {
+
+        DashboardSafraResponseDTO dash =
+                dashboardService.gerar(safra.getId());
+
+        return BiComparativoSafraDTO.builder()
+
+                .safraId(
+                        safra.getId()
+                )
+
+                .safra(
+                        safra.getNome()
+                )
+
+                .receita(
+                        dash.getReceitaTotal()
+                )
+
+                .custo(
+                        dash.getCustoTotal()
+                )
+
+                .lucro(
+                        dash.getLucroTotal()
+                )
+
+                .margem(
+                        dash.getMargemLucro()
+                )
+
+                .area(
+                        dash.getAreaTotal()
+                )
+
+                .producao(
+                        dash.getProducaoTotal()
+                )
+
+                .produtividade(
+                        calcularProdutividade(
+                                dash.getProducaoTotal(),
+                                dash.getAreaTotal()
+                        )
+                )
+
+                .vendido(
+                        dash.getTotalVendido()
+                )
+
+                .estoque(
+                        dash.getEstoqueTotal()
+                )
+
+                .precoMedio(
+                        dash.getPrecoMedio()
+                )
+
+                .percentualComercializado(
+                        dash.getPercentualComercializado()
+                )
+
+                .custoPorHectare(
+                        dash.getCustoPorHectare()
+                )
+
+                .custoPorSaca(
+                        dash.getCustoPorSaca()
+                )
+
+                .build();
+    }
+
+    /* =========================================================
+       🔥 PRODUTIVIDADE
+       ========================================================= */
+
+    private BigDecimal calcularProdutividade(
+            BigDecimal producao,
+            BigDecimal area
+    ) {
+
+        if (nvl(area).compareTo(BigDecimal.ZERO) == 0) {
+            return BigDecimal.ZERO;
+        }
+
+        return nvl(producao)
+                .divide(
+                        nvl(area),
+                        2,
+                        RoundingMode.HALF_UP
+                );
     }
 
     /* =========================================================

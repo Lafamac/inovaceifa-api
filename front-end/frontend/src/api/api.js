@@ -1089,3 +1089,6 @@ export const listarVendasPorTalhao = (safraTalhaoId) =>
 
 export const obterComparativoTalhoes = () =>
     apiFetch('/bi/comparativo-talhoes')
+
+export const obterComparativoSafras = () =>
+    apiFetch('/bi/comparativo-safras')
